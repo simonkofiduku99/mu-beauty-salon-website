@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MU Beauty Salon & Spa</title>
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root { --bg-dark:#0d0d0d; --bg-panel:#161616; --gold:#c8963e; --gold-light:#e0b46a; --text-light:#f5f0e6; --text-muted:#b8b0a2; }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia',serif}
+  body{background:var(--bg-dark);color:var(--text-light)}
+  header{display:flex;justify-content:space-between;align-items:center;padding:14px 6%;background:var(--bg-dark);border-bottom:1px solid #2a2a2a;position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:1.3rem;color:var(--gold-light)}
+  .logo img{height:56px;width:56px;border-radius:50%;object-fit:cover}
+  .logo b{color:var(--text-light)}
+  .hero{text-align:center;padding:90px 6% 70px;background:radial-gradient(circle at top,#1a1a1a,#0d0d0d)}
+  .hero h1{font-size:2.8rem;color:var(--gold-light);margin-bottom:14px}
+  .hero p{color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto 30px}
+  .btn{display:inline-block;padding:14px 34px;background:var(--gold);color:#0d0d0d;font-weight:bold;text-decoration:none;border-radius:30px;cursor:pointer;border:none;font-size:1rem}
+  section{padding:70px 6%}
+  .section-title{text-align:center;margin-bottom:50px} .section-title h2{font-size:2.2rem;color:var(--gold-light)}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
+  .service-card{background:var(--bg-panel);border:1px solid #2a2a2a;border-radius:14px;text-align:center;padding-bottom:20px}
+  .service-card img{width:100%;height:220px;object-fit:cover;border-radius:14px 14px 0 0}
+  .service-card h3{color:var(--gold-light);margin:18px 0 8px;font-size:1.15rem}
+  .contact-location{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .contact-box,.location-box{background:var(--bg-panel);border:1px solid #2a2a2a;border-radius:14px;padding:40px}
+  .contact-box h3,.location-box h3{color:var(--gold-light);margin-bottom:20px;font-size:1.4rem}
+  .contact-box .btn{margin-top:20px}
+  #bookingFormWrapper{max-height:0;overflow:hidden;opacity:0;transition:max-height 0.6s ease,opacity 0.4s ease}
+  #bookingFormWrapper.open{max-height:650px;opacity:1;margin-top:20px}
+  footer{text-align:center;padding:40px 20px;color:var(--text-muted);border-top:1px solid #2a2a2a}
+  .footer-social{margin-top:16px;display:flex;justify-content:center;gap:14px}
+  .footer-social a{width:42px;height:42px;border-radius:50%;background:#161616;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:18px;text-decoration:none;transition:0.3s}
+  .footer-social a:hover{background:var(--gold);color:#0d0d0d;transform:translateY(-3px)}
+  @media(max-width:768px){.contact-location{grid-template-columns:1fr}}
+  @media(max-width:480px){.logo span{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <img src="images/logo.png" alt="MU Beauty Salon & Spa logo">
+    <span>MU <b>Beauty Salon & Spa</b></span>
+  </a>
+</header>
+
+<section class="hero">
+  <h1>Beauty. Confidence. Elegance.</h1>
+  <p>From flawless makeup to precision haircuts, luxurious spa treatments, and stunning nails.</p>
+  <button type="button" class="btn openBookingBtn">Book Now</button>
+</section>
+
+<section id="services">
+  <div class="section-title"><h2>Our Services</h2></div>
+  <div class="services-grid">
+    <div class="service-card"><img src="images/mens-haircut.jpg" alt="Haircut"><h3>Men's & Women's Haircut</h3></div>
+    <div class="service-card"><img src="images/braiding.jpg" alt="Braiding"><h3>Braiding & Hairstyling</h3></div>
+    <div class="service-card"><img src="images/pedicure-manicure.jpg" alt="Pedicure and manicure"><h3>Pedicure & Manicure</h3></div>
+    <div class="service-card"><img src="images/makeup.jpg" alt="Makeup"><h3>Makeup & Nail Extension</h3></div>
+    <div class="service-card"><img src="images/wig.jpg" alt="Wig making"><h3>Wig Making & Installation</h3></div>
+    <div class="service-card"><img src="images/spa.jpg" alt="Spa"><h3>Spa & Body Treatments</h3></div>
+  </div>
+</section>
+
+<section id="contact-location">
+  <div class="section-title"><h2>Walk In Or Book An Appointment</h2></div>
+  <div class="contact-location">
+    <div class="contact-box" id="contact">
+      <h3>Get In Touch</h3>
+      <p>📞 Phone: +233504077879</p>
+      <p>🕒 Hours: Tue–Sat, 9AM – 7PM |sun,1PM- 7PM</p>
+      <button type="button" class="btn openBookingBtn">Book Now</button>
+
+      <div id="bookingFormWrapper">
+        <form id="bookingForm" style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+          <input type="text" id="name" placeholder="Your Full Name" required style="padding:12px;border-radius:8px;border:1px solid #333;background:#222;color:white">
+          <select id="service" required style="padding:12px;border-radius:8px;border:1px solid #333;background:#222;color:#c8963e">
+            <option value="">Select Service</option>
+            <option>Men's & Women's Haircut</option>
+            <option>Braiding & Hairstyling</option>
+            <option>Pedicure & Manicure</option>
+            <option>Makeup & Nail Extension</option>
+            <option>Wig Making & Installation</option>
+            <option>Spa & Body Treatments</option>
+            <option>A Training Session</option>
+          </select>
+          <input type="date" id="date" required style="padding:12px;border-radius:8px;border:1px solid #333;background:#222;color:white">
+          <button type="submit" class="btn">📲 Book on WhatsApp</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="location-box" id="location">
+      <h3>Find Us</h3>
+      <p>Address: AD Plazza, Old Ashongman, Shop 5</p>
+      <p>Nearby Landmark: AD Plazza</p>
+      <div style="overflow:hidden;margin-top:14px;border-radius:10px;">
+        <iframe src="https://www.google.com/maps?q=Mu+Spa+Massage&output=embed" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/BBK49Wa2vpJJxM7w6?g_st=ac" target="_blank" style="color:var(--gold-light);text-decoration:underline;">📍 View on Google Maps</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>MU BEAUTY SALON & SPA — Unleash your true beauty with our expert touch. Because you deserve to feel fabulous every day.</div>
+  <div class="footer-social">
+    <a href="https://facebook.com/MUBeautySalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/mu_beauty_salon_spa" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@mubeautysalon" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://x.com/mubeautysalon_50" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+  </div>
+</footer>
+
+<script>
+  const openBtns = document.querySelectorAll('.openBookingBtn');
+  const formWrapper = document.getElementById('bookingFormWrapper');
+  const dateInput = document.getElementById('date');
+
+  // Block past dates
+  dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
+
+  // Open the form and scroll to it
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      formWrapper.classList.add('open');
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Send booking to WhatsApp
+  document.getElementById('bookingForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const service = document.getElementById('service').value;
+    const dateRaw = dateInput.value;
+
+    const prettyDate = new Date(dateRaw + 'T00:00:00').toLocaleDateString('en-GB', {
+      weekday: 'long', day: 'numeric', month: 'short', year: 'numeric'
+    });
+
+    const message =
+      `Hello MU Salon,\n` +
+      `I'm ${name}\n\n` +
+      `New booking please: ${prettyDate}\n\n` +
+      `Service: ${service}`;
+
+    const url = `https://wa.me/233504077879?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
